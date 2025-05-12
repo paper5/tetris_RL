@@ -1,4 +1,7 @@
-
+/videos
+/best_model
+/logs
+/ppo_tetris_logs
 .idea/tetris_RL.iml
 .idea/misc.xml
 .idea/inspectionProfiles/profiles_settings.xml

@@ -18,7 +18,7 @@ model = PPO("MultiInputPolicy", vec_env,
     batch_size=64,
     n_epochs=10,
     tensorboard_log="./ppo_tetris_logs/")
-
+#more steps for advance
 
 eval_callback = EvalCallback(
     env,
@@ -33,7 +33,6 @@ model.learn(total_timesteps=1000000, callback=eval_callback)
 
 # Save the model
 model.save("tetris_ppo")
-
 
 
 #
