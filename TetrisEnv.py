@@ -1,7 +1,7 @@
-from tetris_gymnasium.envs.tetris import TetrisGymnasium, RewardsMapping
+from tetris_gymnasium.envs.tetris import Tetris, RewardsMapping
 from dataclasses import dataclass
 
-class EnhancedTetrisEnv(TetrisGymnasium):
+class EnhancedTetrisEnv(Tetris):
     def __init__(self, **kwargs):
         super().__init__(
             reward_mapping=CustomRewardMapping(),
@@ -39,7 +39,7 @@ class EnhancedTetrisEnv(TetrisGymnasium):
         return sum(
             any(col[:row]) and not col[row]
             for col in board.T
-            for row in range(len(col))
+            for row in range(len(col)))
 
     def _get_height(self):
         """Maximum column height"""
