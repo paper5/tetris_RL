@@ -8,14 +8,16 @@ from stable_baselines3.common.callbacks import EvalCallback, StopTrainingOnRewar
 from gymnasium.wrappers import RecordVideo
 from stable_baselines3.common.vec_env import DummyVecEnv
 from tetris_gymnasium.envs.tetris import Tetris
+from TetrisEnv import EnhancedTetrisEnv, CustomRewardMapping
+
 
 env = gym.make('tetris_gymnasium/Tetris')
 vec_env = make_vec_env(lambda: gym.make('tetris_gymnasium/Tetris'), n_envs=4) #for parallel enviorments
 
 model = PPO("MultiInputPolicy", vec_env,
     verbose=1,
-    n_steps=2048,  # Longer horizons for planning
-    batch_size=64,
+    n_steps=4096,  # Longer horizons for planning
+    batch_size=128,
     n_epochs=10,
     tensorboard_log="./ppo_tetris_logs/")
 #more steps for advance
