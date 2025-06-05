@@ -7,11 +7,14 @@ from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3.common.callbacks import EvalCallback, StopTrainingOnRewardThreshold
 from gymnasium.wrappers import RecordVideo
 from stable_baselines3.common.vec_env import DummyVecEnv
+from stable_baselines3.dqn.policies import DQNPolicy
 from tetris_gymnasium.envs.tetris import Tetris
+from stable_baselines3 import DQN
+
 
 print("starting....")
 # Load your trained model
-model = PPO.load("./best_model/best_model.zip")
+model = DQN.load("best_model/best_model.zip")
 
 # Create environment with video recording
 env = gym.make(
